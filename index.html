@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test Engine</title>
+    <title>Asteroids</title>
 </head>
 <body>
 
@@ -16,13 +16,13 @@
     const ENERGY_REGEN_RATE = .5;
     const MAX_HEALTH = 100;
     const BURST_COST = 40;
-    const BRAKE_COST = .25
+    const BRAKE_COST = .25;
     const SHIP_WEIGHT = 50;
 
     //Main
     const FPS = 30; //frames per second
     const SHIP_SIZE = 30; // ship height in pixels
-    const TURN_THRUST = 30; //turn accelleration
+    const TURN_THRUST = 30; //turn accellaration
     const SHIP_THRUST = 15;
     const FRICTION = 0.7; // friction coefficient of space(0 = no friction, 1 = total friction)
     const ROIDS_NUM = 3; //starting number of asteroids
@@ -569,6 +569,17 @@
             }
         }
 
+        ctx.font = "14px Arial";
+        ctx.fillStyle = "grey";
+        ctx.fillText("Controls: ", 10, 50);
+        ctx.fillText("W - Thrust", 20, 70);
+        ctx.fillText("A, D - Steer", 20, 90);
+        ctx.fillText("Shift - Brake", 20, 110);
+        ctx.fillText("Double tap W, A, S, D - Dodge", 20, 130);
+
+        ctx.fillText("This project is an in-progress attempt to modernize the classic 'Asteroids' game.", 10, 500);
+        ctx.fillText("Several features in the original design are currently missing or not working as intended", 10, 520);
+
         //thrust the ship
         if(!exploding) {
             if (ship.thrusting) {
@@ -745,7 +756,7 @@
                 roids[i].xv = impact.dx2f;
                 roids[i].yv = impact.dy2f;
 
-                //explodeShip();
+                explodeShip();
             }
         }
 
@@ -836,5 +847,6 @@
     }
 
 </script>
+
 </body>
 </html>
